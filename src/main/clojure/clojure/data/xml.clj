@@ -135,16 +135,18 @@ for documentation on options:
 (defn emit
   "Prints the given Element tree as XML text to stream.
    Options:
-    :encoding <str>          Character encoding to use
-    :doctype  <str>          Document type (DOCTYPE) declaration to use"
+    :encoding    <str>       Character encoding to use
+    :doctype     <str>       Document type (DOCTYPE) declaration to use
+    :event-xform <fn>        Transducer for the event stream"
   [e writer & {:as opts}]
   (write-document writer (flatten-elements [e]) opts))
 
 (defn emit-str
   "Emits the Element to String and returns it.
    Options:
-    :encoding <str>          Character encoding to use
-    :doctype  <str>          Document type (DOCTYPE) declaration to use"
+    :encoding    <str>       Character encoding to use
+    :doctype     <str>       Document type (DOCTYPE) declaration to use
+    :event-xform <fn>        Transducer for the event stream"
   ([e & opts]
    (let [sw (string-writer)]
      (apply emit e sw opts)
