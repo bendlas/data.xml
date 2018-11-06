@@ -73,14 +73,6 @@
     <clojure.version>1.7.0</clojure.version>
   </properties>
 
-  <pluginRepositories>
-    <!-- use clojars for cljc-maven-plugin -->
-    <pluginRepository>
-      <id>clojars.org</id>
-      <url>https://clojars.org/repo</url>
-    </pluginRepository>
-  </pluginRepositories>
-
   <scm>
     <connection>scm:git:git@github.com:clojure/data.xml.git</connection>
     <developerConnection>scm:git:git@github.com:clojure/data.xml.git</developerConnection>
