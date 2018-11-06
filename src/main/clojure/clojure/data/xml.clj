@@ -168,3 +168,15 @@ for documentation on options:
 
 ;; TODO implement ~normalize to simulate an emit-parse roundtrip
 ;;      in terms of xmlns environment and keywords vs qnames
+
+(comment
+
+  (emit-str (parse-str "<foo>bar lala <br/> gag</foo>")
+            :event-xform (fn [xf]
+                           (fn
+                             ([s] (xf s))
+                             ([s {:as e :keys [str]}]
+                              (-> s
+                                  (cond-> str (xf (clojure.data.xml.event/->CharsEvent "^.^")))
+                                  (xf e))))))
+  )
